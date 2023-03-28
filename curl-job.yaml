@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: notifsender-sms-cron
+  namespace: komodor-tutorial
+spec:
+  template:
+    spec:
+      containers:
+      - name: notifsender-sms-cron
+        image: alpine:latest
+        command: ["/bin/sh"]
+        args:
+          - -c
+          - >
+            apk update && apk add --no-cache curl bash && bash -c 
+            " echo \"Running cron loop\";
+              while true; 
+              do
+                exit_status=$(curl -v -o /dev/null -w '%{http_code}' https://www.komodor.com);
+                echo "The Exit Status is $exit_status";
+                if [ $exit_status -ne 200 ]; then
+                    exit 1;
+                fi
+                sleep 2;
+              done
+              "
+      restartPolicy: OnFailure
+  backoffLimit: 4

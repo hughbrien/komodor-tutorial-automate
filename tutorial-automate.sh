@@ -7,7 +7,7 @@ export REPOSITORY_NAME=hughbrien
 # Run kubenetes Deployments
 # Automate the Komodor Tutorials https://github.com/${REPOSITORY_NAME}/komodor-tutorials
 
-echo "# # # # # # # # # # # # # a-simple-deploy-with-a-configmap-change  # # # # # # # # # # # # # # # # #"
+echo "# # # # # # # # # # a-simple-deploy-with-a-configmap-change  # # # # # # # # ## # # # # #"
 
 
 kubectl apply -f https://raw.githubusercontent.com/${REPOSITORY_NAME}/komodor-tutorials/master/deploys-scenarios/a-simple-deploy-with-a-configmap-change/step1.yaml
@@ -30,7 +30,7 @@ open https://app.komodor.com/services?textFilter=komodor-configmap-deploy
 # and shows exactly why the deploy failed with a clear explanation.
 
 sleep 5
-echo "# # # # # # # # # # # # # failed-deploy-creation-config-error  # # # # # # # # # # # # # # # # #"
+echo "# # # # # # # # # # # # # failed-deploy-creation-config-error  # # # # # # # # # # # # # # #"
 
 echo "Running failed-deploy-creation-config-error tutorial"
 kubectl apply -f  https://raw.githubusercontent.com/${REPOSITORY_NAME}/komodor-tutorials/master/deploys-scenarios/failed-deploy-creation-config-error/healthy-deploy.yaml
