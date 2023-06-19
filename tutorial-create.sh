@@ -1,12 +1,12 @@
 #!/bin/sh
 export REPOSITORY_NAME=hughbrien
-export NAMESPACE=developer-demo
+export NAMESPACE=hugh
 #export REPOSITORY_NAME=komodorio
 
 # Run kubenetes Deployments
 # Automate the Komodor Tutorials https://github.com/${REPOSITORY_NAME}/komodor-tutorials
 
-kubernetes create namespace -n ${NAMESPACE}
+kubectl create namespace ${NAMESPACE}
 echo "# # # # # # # # # # a-simple-deploy-with-a-configmap-change  # # # # # # # # ## # # # # #"
 
 kubectl apply -n ${NAMESPACE} -f https://raw.githubusercontent.com/${REPOSITORY_NAME}/komodor-tutorials/master/deploys-scenarios/a-simple-deploy-with-a-configmap-change/step1.yaml
